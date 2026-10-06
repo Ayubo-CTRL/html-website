@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DR DOOM | The Ruler of Latveria</title>
+
+    <meta name="description" content="A completely unnecessary but extremely cool Doctor Doom fan page.">
+    <meta name="theme-color" content="#050505">
+
+    <style>
+        /* =========================================================
+           DOOM WEBSITE
+           Everything is contained in this one file.
+        ========================================================= */
+
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --green: #39ff88;
+            --green-dark: #0c6b38;
+            --purple: #9b4dff;
+            --red: #ff3030;
+            --gold: #d8b45a;
+            --black: #030303;
+            --dark: #080b09;
+            --dark-2: #0e1210;
+            --gray: #8b938e;
+            --white: #f2f5f2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background:
+                radial-gradient(circle at 50% -10%, rgba(57,255,136,.12), transparent 35%),
+                radial-gradient(circle at 10% 50%, rgba(155,77,255,.06), transparent 30%),
+                var(--black);
+            color: var(--white);
+            font-family: 'Inter', Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* ===================== SCROLLBAR ===================== */
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #020202;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--green), var(--purple));
+            border-radius: 10px;
+        }
+
+        /* ===================== BACKGROUND EFFECT ===================== */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: .035;
+            z-index: 999;
+            background-image:
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    #fff 3px
+                );
+        }
+
+        .particles {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--green);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--green);
+            animation: float 8s linear infinite;
+            opacity: .5;
+        }
+
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 25%; animation-delay: 2s; }
+        .particle:nth-child(3) { left: 42%; animation-delay: 4s; }
+        .particle:nth-child(4) { left: 63%; animation-delay: 1s; }
+        .particle:nth-child(5) { left: 78%; animation-delay: 3s; }
+        .particle:nth-child(6) { left: 91%; animation-delay: 5s; }
+
+        @keyframes float {
+            from {
+                transform: translateY(110vh);
+            }
+            to {
+                transform: translateY(-20vh);
+            }
+        }
+
+        /* ===================== NAVBAR ===================== */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            background: rgba(3,3,3,.78);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(57,255,136,.12);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            letter-spacing: 4px;
+            color: var(--green);
+            text-shadow: 0 0 18px rgba(57,255,136,.5);
+            font-size: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: .3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--green);
+            text-shadow: 0 0 10px var(--green);
+        }
+
+        /* ===================== HERO ===================== */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: 120px 20px 80px;
+        }
+
+        .hero-content {
+            max-width: 1100px;
+        }
+
+        .warning {
+            display: inline-block;
+            padding: 8px 16px;
+            border: 1px solid rgba(57,255,136,.35);
+            background: rgba(57,255,136,.04);
+            color: var(--green);
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            50% {
+                box-shadow: 0 0 25px rgba(57,255,136,.15);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(65px, 13vw, 180px);
+            line-height: .8;
+            letter-spacing: -5px;
+            color: #d9dedb;
+            text-shadow:
+                0 0 10px rgba(255,255,255,.1),
+                8px 8px 0 #111,
+                0 0 60px rgba(57,255,136,.15);
+        }
+
+        .hero h1 span {
+            color: var(--green);
+            display: block;
+            text-shadow:
+                0 0 10px rgba(57,255,136,.7),
+                0 0 50px rgba(57,255,136,.3);
+        }
+
+        .hero-subtitle {
+            max-width: 650px;
+            margin: 35px auto;
+            color: #9da59f;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 27px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 12px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: .3s;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--green);
+            color: #001b0d;
+            box-shadow: 0 0 25px rgba(57,255,136,.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 35px rgba(57,255,136,.35);
+        }
+
+        .btn-secondary {
+            border: 1px solid #333;
+            color: #ccc;
+            background: #0a0a0a;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--purple);
+            color: white;
+            box-shadow: 0 0 25px rgba(155,77,255,.15);
+        }
+
+        /* ===================== DOOM IMAGE ===================== */
+
+        .doom-image-wrap {
+            margin: 70px auto 0;
+            width: min(900px, 92vw);
+            position: relative;
+        }
+
+        .doom-image-wrap::before {
+            content: "DOOM";
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Cinzel', serif;
+            font-size: 100px;
+            font-weight: 900;
+            color: rgba(57,255,136,.025);
+            z-index: -1;
+        }
+
+        .doom-image {
+            width: 100%;
+            max-height: 650px;
+            object-fit: cover;
+            border: 1px solid rgba(57,255,136,.2);
+            box-shadow:
+                0 0 50px rgba(57,255,136,.08),
+                0 30px 100px rgba(0,0,0,.8);
+            filter: saturate(.8) contrast(1.15);
+            transition: .5s;
+        }
+
+        .doom-image:hover {
+            transform: scale(1.015);
+            border-color: rgba(57,255,136,.5);
+            box-shadow:
+                0 0 70px rgba(57,255,136,.15),
+                0 30px 100px rgba(0,0,0,.9);
+        }
+
+        /* ===================== SECTIONS ===================== */
+
+        section {
+            padding: 110px 7%;
+            position: relative;
+        }
+
+        .section-label {
+            color: var(--green);
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(35px, 6vw, 70px);
+            line-height: 1;
+            margin-bottom: 25px;
+        }
+
+        .section-description {
+            color: #8d9690;
+            max-width: 650px;
+            line-height: 1.8;
+        }
+
+        /* ===================== CARDS ===================== */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .card {
+            background:
+                linear-gradient(145deg, rgba(255,255,255,.035), rgba(255,255,255,.008));
+            border: 1px solid #1c211e;
+            padding: 35px;
+            min-height: 230px;
+            transition: .35s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::after {
+            content: "";
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: var(--green);
+            filter: blur(80px);
+            opacity: 0;
+            right: -50px;
+            bottom: -50px;
+            transition: .4s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(57,255,136,.3);
+            background: rgba(57,255,136,.025);
+        }
+
+        .card:hover::after {
+            opacity: .15;
+        }
+
+        .card-number {
+            color: var(--purple);
+            font-family: 'Cinzel', serif;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        .card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #7e8781;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        /* ===================== QUOTE ===================== */
+
+        .quote-section {
+            text-align: center;
+            padding: 150px 20px;
+            background:
+                linear-gradient(rgba(3,3,3,.75), rgba(3,3,3,.9)),
+                radial-gradient(circle, rgba(57,255,136,.09), transparent 55%);
+            border-top: 1px solid #151815;
+            border-bottom: 1px solid #151815;
+        }
+
+        blockquote {
+            max-width: 950px;
+            margin: auto;
+            font-family: 'Cinzel', serif;
+            font-size: clamp(27px, 5vw, 55px);
+            line-height: 1.25;
+            color: #e8ebe9;
+        }
+
+        blockquote::before {
+            content: '"';
+            color: var(--green);
+            font-size: 100px;
+            display: block;
+            height: 55px;
+            opacity: .5;
+        }
+
+        .quote-author {
+            margin-top: 30px;
+            color: var(--green);
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        /* ===================== STATS ===================== */
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            margin-top: 60px;
+            border-top: 1px solid #202420;
+            border-bottom: 1px solid #202420;
+        }
+
+        .stat {
+            padding: 40px 20px;
+            text-align: center;
+            border-right: 1px solid #202420;
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat-number {
+            font-family: 'Cinzel', serif;
+            font-size: 45px;
+            color: var(--green);
+            font-weight: 800;
+        }
+
+        .stat-label {
+            color: #707871;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 5px;
+        }
+
+        /* ===================== TERMINAL ===================== */
+
+        .terminal {
+            max-width: 900px;
+            margin: 60px auto 0;
+            background: #050705;
+            border: 1px solid #202720;
+            box-shadow: 0 30px 80px rgba(0,0,0,.5);
+        }
+
+        .terminal-top {
+            height: 40px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 0 15px;
+            background: #0d100e;
+            border-bottom: 1px solid #202720;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .dot.red { background: #ff5757; }
+        .dot.yellow { background: #e7d34a; }
+        .dot.green { background: #39ff88; }
+
+        .terminal-body {
+            padding: 30px;
+            color: var(--green);
+            font-family: monospace;
+            line-height: 1.9;
+            font-size: 14px;
+        }
+
+        .terminal-muted {
+            color: #56625a;
+        }
+
+        .terminal-purple {
+            color: var(--purple);
+        }
+
+        /* ===================== FEEDBACK ===================== */
+
+        .feedback-box {
+            max-width: 800px;
+            margin: 50px auto 0;
+            background: #090c0a;
+            border: 1px solid #1c231e;
+            padding: 40px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 160px;
+            resize: vertical;
+            background: #040504;
+            border: 1px solid #252c27;
+            color: white;
+            padding: 18px;
+            font-family: inherit;
+            outline: none;
+            transition: .3s;
+            margin-bottom: 15px;
+        }
+
+        textarea:focus {
+            border-color: var(--green);
+            box-shadow: 0 0 20px rgba(57,255,136,.08);
+        }
+
+        textarea::placeholder {
+            color: #555c57;
+        }
+
+        /* ===================== FOOTER ===================== */
+
+        footer {
+            padding: 60px 7% 35px;
+            border-top: 1px solid #171b18;
+            background: #020302;
+        }
+
+        .footer-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo {
+            font-family: 'Cinzel', serif;
+            color: var(--green);
+            font-size: 30px;
+            font-weight: 900;
+        }
+
+        .footer-text {
+            max-width: 450px;
+            color: #626a65;
+            line-height: 1.7;
+            font-size: 13px;
+        }
+
+        .copyright {
+            padding-top: 25px;
+            border-top: 1px solid #131613;
+            color: #414741;
+            font-size: 11px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        /* ===================== TO TOP ===================== */
+
+        #topButton {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 45px;
+            height: 45px;
+            border: 1px solid #303830;
+            background: rgba(5,8,6,.9);
+            color: var(--green);
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: .3s;
+            z-index: 500;
+        }
+
+        #topButton.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        #topButton:hover {
+            background: var(--green);
+            color: black;
+        }
+
+        /* ===================== RESPONSIVE ===================== */
+
+        @media (max-width: 800px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat:nth-child(2) {
+                border-right: none;
+            }
+
+            .stat:nth-child(-n+2) {
+                border-bottom: 1px solid #202420;
+            }
+
+            .footer-main {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 500px) {
+            section {
+                padding: 80px 5%;
+            }
+
+            .hero {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .hero-subtitle {
+                font-size: 14px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stat-number {
+                font-size: 32px;
+            }
+
+            .feedback-box {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Floating particles -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">D.R. DOOM</div>
+
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#arsenal">Arsenal</a></li>
+            <li><a href="#terminal">Terminal</a></li>
+            <li><a href="#feedback">Feedback</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HERO -->
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <div class="warning">
+                ⚠ SYSTEM NOTICE — DOOM HAS ARRIVED
+            </div>
+
+            <h1>
+                DR
+                <span>DOOM</span>
+            </h1>
+
+            <p class="hero-subtitle">
+                Doom rising through the shroud of war.
+                Master of science. Lord of Latveria.
+                Absolutely no one asked for this website.
+                But DOOOOOM.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#about" class="btn btn-primary">
+                    Enter Doom's Domain
+                </a>
+
+                <a href="#feedback" class="btn btn-secondary">
+                    Tell Doom Your Thoughts
+                </a>
+            </div>
+
+            <div class="doom-image-wrap">
+                <!-- Keep your image in the same folder as this HTML file -->
+                <img
+                    src="wp5197459-fantastic-four-vs-dr-doom-wallpapers.png"
+                    alt="Doctor Doom"
+                    class="doom-image"
+                >
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <div class="section-label">01 / THE LEGEND</div>
+
+        <h2 class="section-title">
+            Who is Doom?
+        </h2>
+
+        <p class="section-description">
+            Victor von Doom is a genius, monarch, scientist, inventor,
+            sorcerer, and professional hater of losing. He doesn't merely
+            enter a room. He arrives with a theme song.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="card-number">01 — INTELLECT</div>
+                <h3>Genius</h3>
+                <p>
+                    Doom possesses one of the greatest scientific minds
+                    in the Marvel universe. Physics, robotics, engineering,
+                    time travel — Doom has probably already built it.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-number">02 — POWER</div>
+                <h3>Sorcery</h3>
+                <p>
+                    Science wasn't enough. Doom also mastered the mystical
+                    arts, because apparently being a technological genius
+                    wasn't unfair enough.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-number">03 — AUTHORITY</div>
+                <h3>Latveria</h3>
+                <p>
+                    Doom rules Latveria with absolute confidence,
+                    questionable democracy, and an army of robots.
+                    Honestly, the man committed to the aesthetic.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- QUOTE -->
+    <section class="quote-section">
+
+        <blockquote>
+            Doom does not need your approval.
+        </blockquote>
+
+        <div class="quote-author">
+            — Probably Doom
+        </div>
+
+    </section>
+
+
+    <!-- ARSENAL -->
+    <section id="arsenal">
+
+        <div class="section-label">02 / THE ARSENAL</div>
+
+        <h2 class="section-title">
+            Built Different.
+        </h2>
+
+        <p class="section-description">
+            A completely unreasonable collection of abilities and equipment
+            belonging to one extremely unreasonable man.
+        </p>
+
+        <div class="stats">
+
+            <div class="stat">
+                <div class="stat-number">∞</div>
+                <div class="stat-label">Ego</div>
+            </div>
+
+            <div class="stat">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Doom</div>
+            </div>
+
+            <div class="stat">
+                <div class="stat-number">0</div>
+                <div class="stat-label">Chill</div>
+            </div>
+
+            <div class="stat">
+                <div class="stat-number">1</div>
+                <div class="stat-label">Supreme Ruler</div>
+            </div>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="card-number">WEAPON / 01</div>
+                <h3>Armor</h3>
+                <p>
+                    Heavy armor. Energy weapons. Flight. Shields.
+                    Basically everything you would put on a wishlist
+                    if you had an unlimited engineering budget.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-number">WEAPON / 02</div>
+                <h3>Doombots</h3>
+                <p>
+                    Why personally fight your enemies when you can
+                    manufacture an army of robots that look exactly like you?
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-number">WEAPON / 03</div>
+                <h3>Time</h3>
+                <p>
+                    Time travel is just another Tuesday when your scientific
+                    knowledge is completely unreasonable.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TERMINAL -->
+    <section id="terminal">
+
+        <div class="section-label">03 / DOOM SYSTEM</div>
+
+        <h2 class="section-title">
+            Access Granted.
+        </h2>
+
+        <p class="section-description">
+            You've somehow made it this far. Doom has noticed.
+        </p>
+
+        <div class="terminal">
+
+            <div class="terminal-top">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+            </div>
+
+            <div class="terminal-body">
+                <div>
+                    <span class="terminal-purple">DOOM@LATVERIA</span>:~$ initiate_doom_sequence
+                </div>
+
+                <div class="terminal-muted">
+                    Establishing connection...
+                </div>
+
+                <div class="terminal-muted">
+                    Loading armor systems...
+                </div>
+
+                <div class="terminal-muted">
+                    Loading Doombots...
+                </div>
+
+                <div>
+                    ✓ ALL SYSTEMS ONLINE
+                </div>
+
+                <br>
+
+                <div>
+                    <span class="terminal-purple">DOOM@LATVERIA</span>:~$
+                    <span id="terminalText">DOOM IS INEVITABLE.</span>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEEDBACK -->
+    <section id="feedback">
+
+        <div class="section-label">04 / YOUR OPINION</div>
+
+        <h2 class="section-title">
+            Speak.
+        </h2>
+
+        <p class="section-description">
+            Doom has decided that your opinion may be temporarily useful.
+            Tell him what you think of this magnificent website.
+        </p>
+
+        <div class="feedback-box">
+
+            <textarea
+                id="feedbackText"
+                placeholder="Tell Doom what you think..."
+            ></textarea>
+
+            <button class="btn btn-primary" onclick="submitFeedback()">
+                Submit to Doom
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-main">
+
+            <div>
+                <div class="footer-logo">DOOM</div>
+                <p class="footer-text">
+                    A website created out of pure boredom,
+                    excessive enthusiasm, and an entirely unnecessary
+                    amount of CSS.
+                </p>
+            </div>
+
+            <a href="#" class="btn btn-secondary">
+                Return to Doom
+            </a>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 — DR DOOM FAN SITE — MADE WITH WAY TOO MUCH CSS
+        </div>
+
+    </footer>
+
+
+    <!-- BACK TO TOP -->
+    <button id="topButton" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        ↑
+    </button>
+
+
+    <script>
+
+        /* ============================
+           FEEDBACK
+        ============================ */
+
+        function submitFeedback() {
+
+            const text = document.getElementById("feedbackText");
+            const value = text.value.trim();
+
+            if (!value) {
+                alert("DOOM DEMANDS THAT YOU TYPE SOMETHING.");
+                text.focus();
+                return;
+            }
+
+            alert(
+                "MESSAGE RECEIVED.\n\n" +
+                "Doom has reviewed your submission.\n" +
+                "His response is: DOOOOOM."
+            );
+
+            text.value = "";
+        }
+
+
+        /* ============================
+           BACK TO TOP BUTTON
+        ============================ */
+
+        const topButton = document.getElementById("topButton");
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 600) {
+                topButton.classList.add("show");
+            } else {
+                topButton.classList.remove("show");
+            }
+
+        });
+
+
+        /* ============================
+           TERMINAL TEXT
+        ============================ */
+
+        const messages = [
+            "DOOM IS INEVITABLE.",
+            "LATVERIA STANDS.",
+            "DOOM SEES ALL.",
+            "THE ARMOR IS READY.",
+            "DOOM DOES NOT LOSE.",
+            "DOOOOOM."
+        ];
+
+        let messageIndex = 0;
+
+        setInterval(() => {
+
+            messageIndex =
+                (messageIndex + 1) % messages.length;
+
+            const terminalText =
+                document.getElementById("terminalText");
+
+            terminalText.style.opacity = "0";
+
+            setTimeout(() => {
+                terminalText.textContent =
+                    messages[messageIndex];
+
+                terminalText.style.opacity = "1";
+            }, 250);
+
+        }, 3000);
+
+
+        /* ============================
+           CONSOLE MESSAGE
+        ============================ */
+
+        console.log(
+            "%c DOOM HAS ENTERED THE CONSOLE. ",
+            "background:#39ff88;color:#000;font-size:18px;font-weight:bold;padding:10px;"
+        );
+
+        console.log(
+            "%c You should probably leave before he notices you. ",
+            "color:#9b4dff;font-size:14px;"
+        );
+
+    </script>
+
+</body>
+</html>
