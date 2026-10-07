@@ -63,7 +63,7 @@ nav{position:fixed;top:0;left:0;right:0;height:66px;display:flex;align-items:cen
 section{padding:90px 7%}
 .char{--accent:var(--blood);display:flex;flex-direction:column;align-items:center}
 .char.spike{--accent:#e0cf8a}
-.char.willow{--accent:#4fb286}
+.char.willow{--accent:#4fb286;--ar:16/10}
 .char.noora{--accent:#ff8da1;--ar:4/5}
 .char.noora .polaroid{width:min(380px,86vw)}
 .char:nth-of-type(odd){background:var(--deep)}
@@ -150,7 +150,7 @@ footer p{max-width:520px;margin:12px auto 0}
   <h2 class="section-title"><span class="her-name">Noora</span></h2>
   <p class="section-sub">The birthday girl</p>
   <figure class="polaroid">
-    <div class="slot">Add video: noora.mp4<video controls playsinline preload="metadata"><source src="noora.mp4" type="video/mp4" onerror="this.parentElement.remove()"></video></div>
+    <div class="slot">Add video: noora.mp4<video controls playsinline preload="auto" src="noora.mp4#t=0.1" onerror="this.remove()"></video></div>
     <figcaption><span class="her-name">Noora</span></figcaption>
   </figure>
   <div class="page">
