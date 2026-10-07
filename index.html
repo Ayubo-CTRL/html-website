@@ -10,7 +10,7 @@
 =====================================================================
  YOUR TO-DO LIST
  1. PICTURES: put these 4 files in the SAME folder as this index.html
-      noora.jpg   -> Noora picture   (line with  src="noora.jpg")
+      noora.mp4   -> Noora VIDEO     (line with  src="noora.mp4")
       buffy.jpg   -> Buffy picture   (line with  src="buffy.jpg")
       spike.jpg   -> Spike picture   (line with  src="spike.jpg")
       willow.jpg  -> Willow picture  (line with  src="willow.jpg")
@@ -64,15 +64,17 @@ section{padding:90px 7%}
 .char{--accent:var(--blood);display:flex;flex-direction:column;align-items:center}
 .char.spike{--accent:#e0cf8a}
 .char.willow{--accent:#4fb286}
-.char.noora{--accent:#ff8da1}
+.char.noora{--accent:#ff8da1;--ar:4/5}
+.char.noora .polaroid{width:min(380px,86vw)}
 .char:nth-of-type(odd){background:var(--deep)}
 .section-title{font-size:clamp(38px,7vw,72px);line-height:1.05;text-align:center;margin-bottom:8px}
 .section-sub{color:var(--muted);text-align:center;margin-bottom:46px;font-style:italic;font-family:'IM Fell English',serif;font-size:19px}
-.polaroid{background:#f6f0e2;padding:14px 14px 18px;width:min(380px,86vw);transform:rotate(-2deg);box-shadow:0 22px 50px rgba(0,0,0,.55);transition:transform .4s}
+.polaroid{background:#f6f0e2;padding:14px 14px 18px;width:min(540px,90vw);transform:rotate(-2deg);box-shadow:0 22px 50px rgba(0,0,0,.55);transition:transform .4s}
 .char.spike .polaroid{transform:rotate(2deg)}
 .polaroid:hover{transform:rotate(0)}
-.slot{position:relative;overflow:hidden;aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;color:var(--ink);font-weight:700;font-size:14px;background:repeating-linear-gradient(135deg,#e6d9bf,#e6d9bf 10px,#efe3cc 10px,#efe3cc 20px);border:2px dashed var(--accent)}
-.slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%}
+.slot{position:relative;overflow:hidden;aspect-ratio:var(--ar,4/3);display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;color:var(--ink);font-weight:700;font-size:14px;background:repeating-linear-gradient(135deg,#e6d9bf,#e6d9bf 10px,#efe3cc 10px,#efe3cc 20px);border:2px dashed var(--accent)}
+.slot video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000}
+.slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--pos,50% 50%)}
 .polaroid figcaption{margin-top:12px;text-align:center;color:var(--ink);font-family:'IM Fell English',serif;font-style:italic;font-size:21px}
 .page{background:var(--paper);color:var(--ink);border-left:7px solid var(--accent);max-width:640px;width:100%;margin-top:44px;padding:34px 36px;border-radius:3px 16px 16px 3px;box-shadow:0 14px 40px rgba(0,0,0,.4)}
 .page h3{font-size:30px;margin-bottom:12px}
@@ -148,7 +150,7 @@ footer p{max-width:520px;margin:12px auto 0}
   <h2 class="section-title"><span class="her-name">Noora</span></h2>
   <p class="section-sub">The birthday girl</p>
   <figure class="polaroid">
-    <div class="slot">Add photo: noora.jpg<img src="noora.jpg" alt="Noora" onerror="this.remove()"></div>
+    <div class="slot">Add video: noora.mp4<video controls playsinline preload="metadata"><source src="noora.mp4" type="video/mp4" onerror="this.parentElement.remove()"></video></div>
     <figcaption><span class="her-name">Noora</span></figcaption>
   </figure>
   <div class="page">
@@ -176,7 +178,7 @@ footer p{max-width:520px;margin:12px auto 0}
   <h2 class="section-title">Spike</h2>
   <p class="section-sub">Loud, dramatic and secretly the softest</p>
   <figure class="polaroid">
-    <div class="slot">Add photo: spike.jpg<img src="spike.jpg" alt="Spike" onerror="this.remove()"></div>
+    <div class="slot">Add photo: spike.jpg<img src="spike.jpg" alt="Spike" style="--pos:69% 50%" onerror="this.remove()"></div>
     <figcaption>Spike</figcaption>
   </figure>
   <div class="page">
@@ -195,7 +197,7 @@ footer p{max-width:520px;margin:12px auto 0}
   <h2 class="section-title">Willow</h2>
   <p class="section-sub">Kind, brilliant and more powerful than she knows</p>
   <figure class="polaroid">
-    <div class="slot">Add photo: willow.jpg<img src="willow.jpg" alt="Willow" onerror="this.remove()"></div>
+    <div class="slot">Add photo: willow.jpg<img src="willow.jpg" alt="Willow" style="--pos:100% 50%" onerror="this.remove()"></div>
     <figcaption>Willow</figcaption>
   </figure>
   <div class="page">
